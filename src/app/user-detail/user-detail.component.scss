@@ -1,0 +1,35 @@
+.user-detail-header {
+    min-height: 300px;
+    display: flex;
+    align-items: flex-end;
+    background-color: rgba($color: #eca31a, $alpha: 1.0);
+    color: white;
+
+    img {
+        height: 150px;
+        border-radius: 100%;
+
+    }
+
+    .user-details {
+        display: flex;
+        margin-left: 32px;
+        align-items: flex-start;
+        justify-content: center;
+        height: 100px;
+        flex-direction: column;
+    }
+
+}
+
+.user_menu {
+    position: absolute;
+    right: 0px;
+    top: 0px;
+}
+
+.user_menu_details {
+    position: absolute;
+    right: 0px;
+    top: 0px;
+}
