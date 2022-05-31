@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { User } from 'src/models/user.class';
@@ -9,13 +10,21 @@ import { User } from 'src/models/user.class';
   styleUrls: ['./dialog-edit-address.component.scss']
 })
 export class DialogEditAddressComponent implements OnInit {
-
+  userId: string;
   user: User;
-  constructor(public dialogRef: MatDialogRef<DialogEditAddressComponent>) { }
+
+  constructor(public dialogRef: MatDialogRef<DialogEditAddressComponent>, private firestore: AngularFirestore) { }
 
   ngOnInit(): void {
   }
-  saveUser() {
 
+  saveUser() {
+    this.firestore
+      .collection('users')
+      .doc(this.userId)
+      .update(this.user.toJSON())
+      .then(() => {
+        this.dialogRef.close();
+      });
   }
 }
