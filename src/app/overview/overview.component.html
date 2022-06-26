@@ -1,0 +1,12 @@
+<div class="container">
+    
+
+        <mat-card class="profile-container" *ngFor="let user of allUsers" [routerLink]="'/user/' + user.customIdName"
+            routerLinkActivve="router-link-active">
+            <img src="assets/img/usericons/{{randomInteger()}}.png">
+            <p> {{ user.firstName }} {{ user.lastName }}</p>
+        </mat-card>
+
+    
+</div>
+<a href="https://www.flaticon.com/de/kostenlose-icons/" title="alter mann Icons">Icons von Flaticon</a>
